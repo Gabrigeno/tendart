@@ -57,7 +57,7 @@ export default function Library() {
 
 
         {/* Posters a destra */}
-        <div className="relative w-full md:w-1/2 h-64 md:h-screen mt-6 md:mt-0 flex justify-center items-center">
+        <div className="relative hidden md:flex w-full md:w-1/2 h-64 md:h-screen mt-6 md:mt-0 flex justify-center items-center">
           <FlyingPosters items={items} distortion={0.6}/>
         </div>
 

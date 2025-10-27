@@ -1,35 +1,55 @@
 import { ArrowBackIcon } from "@/components/ui/icons/akar-icons-arrow-back";
-import { useState} from "react";
+import { useState, useEffect } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { Document, Page, pdfjs } from "react-pdf";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 export default function Fanzine2() {
   const [numPages, setNumPages] = useState<number | null>(null);
-//    const book = useRef<HTMLDivElement | null>(null);
+  const [dimensions, setDimensions] = useState({ width: 500, height: 700 });
 
-  const PAGE_WIDTH = 500;
-  const PAGE_HEIGHT = 700;
+  useEffect(() => {
+    const calculateDimensions = () => {
+      const isMobile = window.innerWidth < 768;
+      const padding = isMobile ? 64 : 48;
+
+      if (isMobile) {
+        const width = 200 - padding;
+        const height = width * 1.4;
+        setDimensions({ width, height });
+      } else {
+        const width = 500;
+        const height = 700;
+
+        setDimensions({ width, height });
+      }
+    };
+
+    calculateDimensions();
+    window.addEventListener("resize", calculateDimensions);
+
+    return () => window.removeEventListener("resize", calculateDimensions);
+  }, []);
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages);
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#00f5d4] relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#00f5d4] relative overflow-hidden px-4 py-8">
       {/* Flipbook container */}
-      <div className="flex justify-center items-center mt-16 p-6 rounded-2xl shadow-lg">
+      <div className="flex justify-center items-center p-8 mt-8 md:mt-16 rounded-2xl shadow-lg">
         <Document
           file="/noland.pdf"
           onLoadSuccess={onDocumentLoadSuccess}
-          loading={<p>Hey dacci il tempo!...</p>}
+          loading={<p className="text-center p-4">Hey dacci il tempo!...</p>}
         >
           {numPages && (
             <HTMLFlipBook
-              width={PAGE_WIDTH}
-              height={PAGE_HEIGHT}
+              width={dimensions.width}
+              height={dimensions.height}
               showCover={false}
               usePortrait={false}
               drawShadow={true}
@@ -47,13 +67,13 @@ export default function Fanzine2() {
                   key={index}
                   className="page-wrapper flex justify-center items-center bg-white overflow-hidden"
                   style={{
-                    width: PAGE_WIDTH,
-                    height: PAGE_HEIGHT,
+                    width: dimensions.width,
+                    height: dimensions.height,
                   }}
                 >
                   <Page
                     pageNumber={index + 1}
-                    width={PAGE_WIDTH}
+                    width={dimensions.width}
                     renderTextLayer={false}
                     renderAnnotationLayer={false}
                     className="page-content"
@@ -64,13 +84,14 @@ export default function Fanzine2() {
           )}
         </Document>
       </div>
-      <a href="/">
-      <div className="!rounded-none mt-10 text-sora p-0.5 border border-black !bg-[#00f5d4] text-black transition-all duration-200 text-sm
-        shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_rgba(0,0,0)]
-        hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none !hover:border-black">
-        <ArrowBackIcon />
-      </div>
-      </a>
+
+      <Link to="/library">
+          <div className="!rounded-none mt-6 md:mt-10 text-sora p-2 border border-black !bg-[#00f5d4] text-black transition-all duration-200 text-sm
+          shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_rgba(0,0,0)]
+          hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none !hover:border-black">
+          <ArrowBackIcon />
+        </div>
+      </Link>
     </div>
   );
 }

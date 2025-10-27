@@ -8,7 +8,7 @@ export default function Landing() {
       {/* pattern geometrico di fondo */}
       <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 ">
         <div className="bg-[#ff0054] col-span-2 row-span-3 border-2 border-black"></div>
-        <div className="bg-[#fffb00] col-start-5 row-start-2 row-span-4 border-2 border-black"></div>
+        <div className="bg-[#8cff00] col-start-5 row-start-3 row-span-3 border-2 border-black"></div>
       </div>
       {/* Wrapper verticale per testo + bottone */}
       <div className="flex flex-col h-screen justify-center md:justify-center md:items-start items-center md:pl-24 gap-6">
