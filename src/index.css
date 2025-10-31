@@ -114,7 +114,7 @@ a:hover {
 }
 
 body {
-  background-color: var(--background); /* o usa Tailwind bg-background */
+  background-color: var(--background);
   color: var(--foreground);
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
