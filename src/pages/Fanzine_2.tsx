@@ -16,11 +16,13 @@ export default function Fanzine2() {
     const calculateDimensions = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
+      const padding = mobile ? 64 : 48;
 
       if (mobile) {
         const width = Math.min(window.innerWidth - padding, 320);
         const height = width * 1.4;
         setDimensions({ width, height });
+        // Mostra il modale solo su mobile al primo caricamento
         setShowModal(true);
       } else {
         const width = 500;
