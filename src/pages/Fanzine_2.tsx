@@ -4,22 +4,26 @@ import HTMLFlipBook from "react-pageflip";
 import { Document, Page, pdfjs } from "react-pdf";
 import { X } from "lucide-react";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
 
 export default function Fanzine2() {
   const [numPages, setNumPages] = useState<number | null>(null);
   const [dimensions, setDimensions] = useState({ width: 500, height: 700 });
   const [showModal, setShowModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
+    // Check iOS
+    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    setIsIOS(iOS);
+
     const calculateDimensions = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      // const padding = mobile ? 64 : 48;
-      //  Math.min(window.innerWidth - padding, 320);
+
       if (mobile) {
-        const width = 100
+        const width = 140
         const height = width * 1.4;
         setDimensions({ width, height });
         setShowModal(true);
@@ -40,10 +44,45 @@ export default function Fanzine2() {
     setNumPages(numPages);
   }
 
+  // iOS Fallback
+  if (isIOS) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#00f5d4] relative overflow-hidden px-4 py-8">
+        <div className="bg-white rounded-lg p-8 max-w-md w-full shadow-2xl text-center">
+          <h2 className="text-2xl font-bold mb-4 text-black">📱 Dispositivo iOS rilevato!</h2>
+          <p className="text-gray-700 mb-6 leading-relaxed">
+            Il nostro flip-book interattivo non funziona bene sul tuo Dispositivo
+            <br/>
+            Aprilo da PC o premi sotto per aprire il PDF.
+          </p>
+          <a
+            href="/noland.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#00f5d4] border-2 border-black px-6 py-3 text-black font-semibold rounded-lg
+              shadow-[2px_2px_rgba(0,0,0),4px_4px_rgba(0,0,0),6px_6px_rgba(0,0,0)]
+              hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none
+              transition-all duration-200"
+          >
+            Cliccami!
+          </a>
+        </div>
+
+        <a href="/library" className="mt-8">
+          <div className="!rounded-none text-sora p-2 border border-black !bg-[#00f5d4] text-black transition-all duration-200 text-sm
+            shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_rgba(0,0,0)]
+            hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none !hover:border-black">
+            <ArrowBackIcon />
+          </div>
+        </a>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#00f5d4] relative overflow-hidden px-4 py-8">
       {/* Modale Mobile */}
-      {isMobile && showModal && (
+      {isMobile && showModal && !isIOS &&(
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg p-6 max-w-sm w-full relative shadow-2xl">
             <button
@@ -57,11 +96,10 @@ export default function Fanzine2() {
               <p className="text-gray-700 leading-relaxed">
                 Sempre col telefono in mano stai eh! <br/>
               </p>
-                <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed">
                 Questo sito ti consigliamo di aprirlo da pc <br/>
-                Su alcuni smartphone potrebbe dare dei problemi <br/>
-                </p>
-
+                Su alcuni smartphone non rende al meglio! <br/>
+              </p>
             </div>
           </div>
         </div>
