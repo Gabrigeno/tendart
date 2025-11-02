@@ -11,7 +11,7 @@ export default function Landing() {
         <div className="bg-[#8cff00] col-start-5 row-start-3 row-span-3 border-2 border-black"></div>
       </div>
       {/* Wrapper verticale per testo + bottone */}
-      <div className="flex flex-col h-screen justify-center md:justify-center md:items-start items-center md:pl-24 gap-6">
+      <div className="flex flex-col h-screen justify-center md:justify-center md:items-start items-center pl-4 md:pl-24 gap-6">
         <div className=' flex flex-wrap '>
         <TypeAnimation
           sequence={[
