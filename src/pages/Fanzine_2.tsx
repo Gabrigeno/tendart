@@ -4,7 +4,7 @@ import HTMLFlipBook from "react-pageflip";
 import { Document, Page, pdfjs } from "react-pdf";
 import { X } from "lucide-react";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.mjs`;
 
 export default function Fanzine2() {
   const [numPages, setNumPages] = useState<number | null>(null);
@@ -16,13 +16,12 @@ export default function Fanzine2() {
     const calculateDimensions = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      const padding = mobile ? 64 : 48;
-
+      // const padding = mobile ? 64 : 48;
+      //  Math.min(window.innerWidth - padding, 320);
       if (mobile) {
-        const width = Math.min(window.innerWidth - padding, 320);
+        const width = 100
         const height = width * 1.4;
         setDimensions({ width, height });
-        // Mostra il modale solo su mobile al primo caricamento
         setShowModal(true);
       } else {
         const width = 500;

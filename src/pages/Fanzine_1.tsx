@@ -16,10 +16,10 @@ export default function Fanzine1() {
     const calculateDimensions = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      const padding = mobile ? 64 : 48;
-
+      // const padding = mobile ? 64 : 48;
+      //  Math.min(window.innerWidth - padding, 320);
       if (mobile) {
-        const width = Math.min(window.innerWidth - padding, 320);
+        const width = 100
         const height = width * 1.4;
         setDimensions({ width, height });
         setShowModal(true);
