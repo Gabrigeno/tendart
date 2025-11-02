@@ -56,7 +56,7 @@ export default function Fanzine2() {
             Aprilo da PC o premi sotto per aprire il PDF.
           </p>
           <a
-            href="/noland.pdf"
+            href="/fuorirottazinev2.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#00f5d4] border-2 border-black px-6 py-3 text-black font-semibold rounded-lg
