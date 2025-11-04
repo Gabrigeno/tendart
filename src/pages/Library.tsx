@@ -39,7 +39,7 @@ export default function Library() {
                 ◆ FuoriRottaZine vol 2 (Evento Nimbus)
               </button>
             </a>
-            <a href="/fanzine" className="group">
+            <a href="/fanzine_3" className="group">
             <button className="!rounded-none text-sora border-2 border-black dark:border-white !bg-[#00f5d4] text-black hover:!text-white transition-all duration-200 text-sm
               shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_rgba(0,0,0)]
               hover:translate-x-[4px] hover:translate-y-[4px] hover:!bg-[#000000] hover:shadow-none !hover:border-black">
