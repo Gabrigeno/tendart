@@ -5,9 +5,11 @@ import Fanzine2 from "./pages/Fanzine_2";
 import Library from "./pages/Library";
 import Fanzine1 from "./pages/Fanzine_1";
 import Fanzine3 from "./pages/Fanzine_3";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
+    <div>
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -17,6 +19,8 @@ function App() {
         <Route path="/library" element={<Library />} />
       </Routes>
     </Router>
+    <Analytics />
+    </div>
   );
 }
 

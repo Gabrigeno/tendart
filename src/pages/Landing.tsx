@@ -39,25 +39,35 @@ export default function Landing() {
         <div className='flex justify-center content-center z-[100] relative'>
           <img src="landing.png" />
         </div>
-        <footer className=" relative z-[100] bg-white m-4 dark:bg-gray-800 border-4 border-black  text-sora">
+          <footer className="relative z-[100] bg-white m-4 dark:bg-gray-800 border-4 border-black text-sora">
             <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-              <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 Tendart</span>
-            <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+              <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                © 2025 Tendart
+              </span>
+
+              <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
                 <li>
-                    <a href="https://instagram.com/_tendart_/?hl=it" className="hover:underline me-4 md:me-6">Insta!</a>
+                  <a href="https://instagram.com/_tendart_/?hl=it" className="hover:underline me-4 md:me-6">Insta!</a>
                 </li>
                 <li>
-                    <a href="https://www.youtube.com/@TendArtLab" className="hover:underline me-4 md:me-6">YouTube</a>
+                  <a href="https://www.youtube.com/@TendArtLab" className="hover:underline me-4 md:me-6">YouTube</a>
                 </li>
                 <li>
-                    <a href="https://soundcloud.com/tendart" className="hover:underline me-4 md:me-6">SoundCloud</a>
+                  <a href="https://soundcloud.com/tendart" className="hover:underline me-4 md:me-6">SoundCloud</a>
                 </li>
                 <li>
-                    <a href="mailto:tendart01@gmail.com" className="hover:underline">Contattaci</a>
+                  <a href="mailto:tendart01@gmail.com" className="hover:underline">Contattaci</a>
                 </li>
-            </ul>
+              </ul>
             </div>
-        </footer>
+
+            {/* Remind / credit */}
+            <div className="text-left p-4">
+              <span className="text-xs text-gray-400 dark:text-gray-500">
+                Sito realizzato con ⚡ da <a className="hover:underline" href="https://www.linkedin.com/in/gabriele-genovesi-developer/">GabriGeno</a>
+              </span>
+            </div>
+          </footer>
     </div>
   );
 }
