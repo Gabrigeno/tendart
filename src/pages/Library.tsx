@@ -28,7 +28,7 @@ export default function Library() {
       <div className="w-full h-screen flex flex-col md:flex-row items-center justify-between p-4 md:p-8">
 
         {/* Testo a sinistra */}
-        <div className="flex flex-col items-start gap-4 w-full max-w-xl p-6 h-full">
+        <div className="flex flex-col items-start gap-4 w-full max-w-xl p-6">
           <div className="relative p-6 md:p-4 !text-sora flex flex-col w-full text-white font-bold text-2xl md:text-3xl z-10 bg-[#0078d7] border-2 border-black">
               BOMBERONE GUSTATI LE FANZINE! ➡️
           </div>
