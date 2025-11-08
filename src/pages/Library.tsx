@@ -28,32 +28,34 @@ export default function Library() {
       <div className="w-full h-screen flex flex-col md:flex-row items-center justify-between p-4 md:p-8">
 
         {/* Testo a sinistra */}
-        <div className="flex flex-col items-start gap-4 w-full max-w-xl p-6">
-          <div className="relative  md:p-4 !text-sora flex flex-col w-full text-white font-bold text-2xl md:text-3xl z-10 bg-[#0078d7] border-2 border-black">
+        <div className="flex flex-col items-start gap-4 w-full max-w-xl p-6 h-full">
+          <div className="relative p-6 md:p-4 !text-sora flex flex-col w-full text-white font-bold text-2xl md:text-3xl z-10 bg-[#0078d7] border-2 border-black">
               BOMBERONE GUSTATI LE FANZINE! ➡️
           </div>
           <hr className="relative my-3 h-[2px] w-full bg-[#00f5d4] border-1 z-10" />
+          <div className="w-full">
             <a href="/fanzine_1" className="group">
-            <button className="!rounded-none text-sora border-2 border-black dark:border-white !bg-[#00f5d4] text-black transition-all duration-300
+            <button className=" w-full rounded-none text-sora border-2 border-black dark:border-white !bg-[#00f5d4] text-black transition-all duration-300
               shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_rgba(0,0,0)]
               hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none !hover:border-black">
               ◆ FuoriRottaZine vol 1 (Evento Solaio)
             </button>
             </a>
             <a href="/fanzine_2" className="group">
-              <button className="!rounded-none text-sora border-2 border-black dark:border-white !bg-[#00f5d4] text-black transition-all duration-300
+              <button className="w-full rounded-none text-sora border-2 border-black dark:border-white !bg-[#00f5d4] text-black transition-all duration-300
               shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_rgba(0,0,0)]
-              hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none !hover:border-black">
+              hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none !hover:border-black my-4">
                 ◆ FuoriRottaZine vol 2 (Evento Nimbus)
               </button>
             </a>
             <a href="/fanzine_3" className="group">
-            <button className="!rounded-none text-sora border-2 border-black dark:border-white !bg-[#00f5d4] text-black hover:!text-white transition-all duration-300 text-sm
+            <button className="w-full rounded-none text-sora border-2 border-black dark:border-white !bg-[#00f5d4] text-black hover:!text-white transition-all duration-300 text-sm
               shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_rgba(0,0,0)]
               hover:translate-x-[4px] hover:translate-y-[4px] hover:!bg-[#000000] hover:shadow-none !hover:border-black">
               ◆ FuoriRottaZine: Viaggio nel Regno Del Terrore! <br /> (Speciale di Halloween🧛)
             </button>
             </a>
+          </div>
             <a href="/">
             <div className="!rounded-none text-sora p-2 border border-black !bg-[#00f5d4] text-black transition-all duration-200
               shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_rgba(0,0,0)]
@@ -61,7 +63,7 @@ export default function Library() {
               <ArrowBackIcon />
             </div>
             </a>
-            </div>
+        </div>
 
 
         {/* Posters a destra */}

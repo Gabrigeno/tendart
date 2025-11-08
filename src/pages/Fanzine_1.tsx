@@ -164,13 +164,27 @@ export default function Fanzine2() {
         </Document>
       </div>
 
+      <div className="flex flex-wrap gap-4">
       <a href="/library">
-        <div className="!rounded-none mt-6 md:mt-10 text-sora p-2 border border-black !bg-[#00f5d4] text-black transition-all duration-200 text-sm
+        <button className="!rounded-none mt-6 md:mt-10 text-sora p-2 !border !border-black !bg-[#00f5d4] text-black transition-all duration-200 text-sm
           shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_rgba(0,0,0)]
           hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none !hover:border-black">
           <ArrowBackIcon />
-        </div>
+        </button>
       </a>
+      <a
+        href="/laprima.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        <button className="!bg-[#00f5d4] !rounded-none !border !border-black mt-6 md:mt-10 text-black font-semibold rounded-lg
+        shadow-[2px_2px_rgba(0,0,0),4px_4px_rgba(0,0,0),6px_6px_rgba(0,0,0)]
+        hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none
+        transition-all duration-200">
+        Versione PDF
+        </button>
+      </a>
+      </div>
     </div>
   );
 }
